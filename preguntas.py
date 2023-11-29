@@ -215,10 +215,10 @@ def pregunta_03():
     # tipo texto. Use make_column_selector para seleccionar las columnas. Las
     # columnas numéricas no deben ser transformadas.
     columnTransformer = ColumnTransformer(
-        (
+        transformers=[(
            "cat", OneHotEncoder(),
-            make_column_selector('dtype_include'==object),
-        ),
+            make_column_selector('dtype_include'==object)
+        )],
         remainder='passthrough',
     )
 
